@@ -64,7 +64,7 @@ bot.hears(words.wordsZNO, getZNO());
 enrolletBranch(bot);
 studentsBranch(bot)
 teacherBranch(bot)
-anketaBranch(bot)
+// anketaBranch(bot)
 
 
 
