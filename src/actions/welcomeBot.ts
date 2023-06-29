@@ -1,7 +1,7 @@
 import { bot } from "../index"
 import { Context } from "telegraf";
 import {menuButton} from '../buttons/menuButton'
-
+import fs = require('fs');
 
 export const welcomeBot = ()=> async (ctx: Context)=> {
   try {
@@ -9,12 +9,13 @@ export const welcomeBot = ()=> async (ctx: Context)=> {
       bot.telegram.sendChatAction(ctx.chat.id, 'upload_photo');
 }
 
-
+const photo: string = __dirname+'src/';
 
   await ctx.reply(`Дякуємо, що ти тепер з нами - завдяки тобі наша сім'я росте!) 😊
   Не найкраще моє фото, але ось так я виглядаю 🙂`);
   await ctx.replyWithPhoto(
-    { source: 'src/images/robot.jpg' },
+    { source: fs.readFileSync(__dirname 
+      + '/robot.jpg') },
     {
       caption: 'Чат-бот кафедри ІЕПФ ІННІ ім. Ю.М. Потебні ЗНУ',
     }
@@ -31,7 +32,7 @@ export const welcomeBot = ()=> async (ctx: Context)=> {
   menuButton
   );
   } catch (error) {
-    
+    throw new Error("welcome error "+ error)
   }
    
   }

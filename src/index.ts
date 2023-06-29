@@ -26,9 +26,6 @@ const words = require('./text/words')
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 
-interface MyContext extends Context {
-  scene: Scenes.SceneContextScene<MyContext> | null;
-}
 
 
 export const bot = new Telegraf<Scenes.SceneContext>(BOT_TOKEN);
@@ -61,9 +58,9 @@ bot.hears(words.wordsZNO, getZNO());
 // Start lisinig a branchs
 // Прослушка веток Для абитуриентов, students and teacher
 
-enrolletBranch(bot);
-studentsBranch(bot)
-teacherBranch(bot)
+// enrolletBranch(bot);
+// studentsBranch(bot)
+// teacherBranch(bot)
 // anketaBranch(bot)
 
 
